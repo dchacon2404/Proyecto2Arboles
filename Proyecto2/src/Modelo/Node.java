@@ -9,13 +9,13 @@ package Modelo;
  * @author dchac
  */
 public class Node {
-    int data;
+    ClaseVirtual data;
     int height;
 
   
     Node left, right;
 
-    Node(int data){
+    Node(ClaseVirtual data){
         this.data = data;
         height = 1;
     }
