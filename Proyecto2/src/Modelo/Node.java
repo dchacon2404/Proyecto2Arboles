@@ -8,15 +8,15 @@ package Modelo;
  *
  * @author dchac
  */
-public class Metodos {
-    
-    public void Insert(){
-        
+public class Node {
+    int data;
+    int height;
+
+  
+    Node left, right;
+
+    Node(int data){
+        this.data = data;
+        height = 1;
     }
-    
-    public void Delete(){
-        
-    }
-    
-    
 }
