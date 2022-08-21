@@ -1,5 +1,10 @@
 package Vista;
 
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -16,6 +21,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnSalir = new javax.swing.JLabel();
         bg = new javax.swing.JPanel();
         panelUnderLogin = new javax.swing.JPanel();
         panelLogin = new javax.swing.JPanel();
@@ -30,7 +36,25 @@ public class Login extends javax.swing.JFrame {
         labelImagenUnion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 0, 0));
+        btnSalir.setText("   X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 40, 30));
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,6 +88,11 @@ public class Login extends javax.swing.JFrame {
 
         btnLogin.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnLogin.setText("Iniciar");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         panelLogin.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 180, 270, -1));
 
         panelUnderLogin.add(panelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 320, 220));
@@ -83,6 +112,40 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario user = new Usuario();
+        
+        if (!txtUserName.getText().equals("") && !txtPassword.getText().equals("")) {
+            user.setUser((txtUserName.getText()));
+            user.setPassword(txtPassword.getText());
+            
+            if (dao.login(user)) {
+                this.dispose();
+                Menu frm = new Menu();
+                frm.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Los datos ingresados son incorrectos");
+            }
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese los datos necesarios");
+        } 
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setForeground(Color.red);
+    }//GEN-LAST:event_btnSalirMouseExited
 
     /**
      * @param args the command line arguments
@@ -127,6 +190,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnLogin;
+    public javax.swing.JLabel btnSalir;
     private javax.swing.JCheckBox cbRemerberme;
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelCardHeader;

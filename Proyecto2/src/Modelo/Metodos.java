@@ -1,10 +1,6 @@
-
 package Modelo;
 
-/**
- *
- * @author dchac
- */
+
 public class Metodos {
     
     Node root;
@@ -52,8 +48,9 @@ public class Metodos {
         }
         return height(node.left) - height(node.right);
     }
-
-    public Node insert(Node node, ClaseVirtual data){
+    
+    
+    /*public Node insert(Node node, ClaseVirtual data){
         if(node == null) return (new Node(data));
         if (data < node.data){
             node.left = insert(node.left, data);
@@ -86,11 +83,5 @@ public class Metodos {
         }
 
         return node;
-    }
-    
-
-    
-
-    
-    
+    }*/
 }
