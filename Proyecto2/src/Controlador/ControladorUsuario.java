@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Usuario;
-import Modelo.UsuarioDAO;
+import Modelo.MetodosDAO;
 import Vista.NuevoUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class ControladorUsuario implements ActionListener {
 
     Usuario user = new Usuario();
-    UsuarioDAO userdao = new UsuarioDAO();
+    MetodosDAO userdao = new MetodosDAO();
     NuevoUsuario newuser = new NuevoUsuario();
 
     public ControladorUsuario(NuevoUsuario frm) {

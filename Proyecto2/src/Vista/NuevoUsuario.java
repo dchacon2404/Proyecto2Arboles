@@ -8,6 +8,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     
     public NuevoUsuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

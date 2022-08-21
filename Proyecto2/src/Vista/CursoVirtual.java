@@ -38,13 +38,14 @@ public class CursoVirtual extends javax.swing.JFrame {
         txtHoraInicio = new javax.swing.JTextField();
         txtHoraFin = new javax.swing.JTextField();
         tableCursos = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCursos = new javax.swing.JTable();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblBuscar = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnSalir = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +86,7 @@ public class CursoVirtual extends javax.swing.JFrame {
         bg.add(txtHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 170, -1));
         bg.add(txtHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 170, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -96,7 +97,7 @@ public class CursoVirtual extends javax.swing.JFrame {
 
             }
         ));
-        tableCursos.setViewportView(jTable1);
+        tableCursos.setViewportView(tablaCursos);
 
         bg.add(tableCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 520, 220));
 
@@ -133,6 +134,10 @@ public class CursoVirtual extends javax.swing.JFrame {
             }
         });
         bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(853, 0, 40, 20));
+
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancelar.setText("CANCELAR");
+        bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Union.png"))); // NOI18N
         fondo.setText(".");
@@ -203,12 +208,12 @@ public class CursoVirtual extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnEliminar;
     private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel fondo;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDia;
@@ -218,15 +223,16 @@ public class CursoVirtual extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreCurso;
     private javax.swing.JLabel lblSede;
     private javax.swing.JLabel lblTema;
+    public javax.swing.JTable tablaCursos;
     private javax.swing.JScrollPane tableCursos;
-    private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtDocente;
-    private javax.swing.JTextField txtDía;
-    private javax.swing.JTextField txtHoraFin;
-    private javax.swing.JTextField txtHoraInicio;
-    private javax.swing.JTextField txtNombreCurso;
-    private javax.swing.JTextField txtSede;
-    private javax.swing.JTextField txtTema;
+    public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtCodigo;
+    public javax.swing.JTextField txtDocente;
+    public javax.swing.JTextField txtDía;
+    public javax.swing.JTextField txtHoraFin;
+    public javax.swing.JTextField txtHoraInicio;
+    public javax.swing.JTextField txtNombreCurso;
+    public javax.swing.JTextField txtSede;
+    public javax.swing.JTextField txtTema;
     // End of variables declaration//GEN-END:variables
 }

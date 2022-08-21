@@ -1,7 +1,7 @@
 package Vista;
 
 import Modelo.Usuario;
-import Modelo.UsuarioDAO;
+import Modelo.MetodosDAO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -28,9 +28,9 @@ public class Login extends javax.swing.JFrame {
         labelUserName = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         labelPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         cbRemerberme = new javax.swing.JCheckBox();
         btnLogin = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
         labelAvatar = new javax.swing.JLabel();
         labelCardHeader = new javax.swing.JLabel();
         labelImagenUnion = new javax.swing.JLabel();
@@ -77,10 +77,6 @@ public class Login extends javax.swing.JFrame {
         labelPassword.setText("Contraseña");
         panelLogin.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 90, 30));
 
-        txtPassword.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 280, -1));
-
         cbRemerberme.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         cbRemerberme.setText("Recuerdame");
         cbRemerberme.setBorder(null);
@@ -94,6 +90,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         panelLogin.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 180, 270, -1));
+        panelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 270, -1));
 
         panelUnderLogin.add(panelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 320, 220));
 
@@ -115,7 +112,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
-        UsuarioDAO dao = new UsuarioDAO();
+        MetodosDAO dao = new MetodosDAO();
         Usuario user = new Usuario();
         
         if (!txtUserName.getText().equals("") && !txtPassword.getText().equals("")) {
@@ -199,7 +196,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel labelUserName;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelUnderLogin;
-    private javax.swing.JTextField txtPassword;
+    public javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
