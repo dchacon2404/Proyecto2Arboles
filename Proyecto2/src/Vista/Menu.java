@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.ControladorClases;
 import Controlador.ControladorUsuario;
 import javax.swing.ImageIcon;
 import java.awt.Image;
@@ -87,7 +88,6 @@ public class Menu extends javax.swing.JFrame {
         NuevoUsuario obj = new NuevoUsuario();
         //desktopPane.add(obj);
         obj.toFront();
-        obj.setLocation(desktopPane.getWidth() / 2 - obj.getWidth() / 2, desktopPane.getHeight() / 2 - obj.getHeight() / 2);
         obj.setVisible(true);
         // Conectar formulario con la clase controller
         ControladorUsuario con = new ControladorUsuario(obj);
@@ -102,8 +102,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu3MouseClicked
 
     private void menu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu2MouseClicked
+        
         CursoVirtual curso = new CursoVirtual();
+        curso.toFront();
         curso.setVisible(true);
+        
+        ControladorClases clases = new ControladorClases(curso);
+        clases.inicio();
     }//GEN-LAST:event_menu2MouseClicked
 
     /**

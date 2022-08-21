@@ -49,39 +49,48 @@ public class Metodos {
         return height(node.left) - height(node.right);
     }
     
-    
-    /*public Node insert(Node node, ClaseVirtual data){
-        if(node == null) return (new Node(data));
-        if (data < node.data){
+    public Node insert(Node node, ClaseVirtual data){
+        //1. Insercion normal en un arbol de busqueda binaria
+        if (node == null){
+            return (new Node(data));
+        }
+
+        if (data.getCodigoCurso() < node.data.getCodigoCurso()){
             node.left = insert(node.left, data);
-        } else if (data > node.data){
+        } else if (data.getCodigoCurso() > node.data.getCodigoCurso()){
             node.right = insert(node.right, data);
-        } else { 
+        } else { //Duplicados no son permitidos
             return node;
         }
 
+        //2. Actualizar la altura del nodo
         node.height = 1 + max(height(node.left), height(node.right));
 
+        //3. Obtener el factor de balance del nodo para posteriormente determinar si esta balanceado o no
         int balanceFactor = getBalance(node);
 
-        if (balanceFactor > 1 && data < node.left.data){
+        // Rotacion derecha
+        if (balanceFactor > 1 && data.getCodigoCurso() < node.left.data.getCodigoCurso()){
             return rightRotation(node);
         }
 
-        if (balanceFactor < -1 && data > node.right.data){
+        // Rotacion izquierda
+        if (balanceFactor < -1 && data.getCodigoCurso() > node.right.data.getCodigoCurso()){
             return leftRotation(node);
         }
 
-        if (balanceFactor > 1 && data > node.left.data){
+        // Rotacion izquierda derecha
+        if (balanceFactor > 1 && data.getCodigoCurso() > node.left.data.getCodigoCurso()){
             node.left = leftRotation(node.left);
             return rightRotation(node);
         }
 
-        if (balanceFactor < -1 && data < node.right.data){
+        // Rotacion derecha izquierda
+        if (balanceFactor < -1 && data.getCodigoCurso() < node.right.data.getCodigoCurso()){
             node.right = rightRotation(node.right);
             return leftRotation(node);
         }
 
         return node;
-    }*/
+    }
 }
