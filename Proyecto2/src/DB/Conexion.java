@@ -14,8 +14,8 @@ public class Conexion {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            cnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/album?useUnicode=true&useJDBCCompliant"
-                    + "TimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "admin");
+            cnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto2?useUnicode=true&useJDBCCompliant"
+                    + "TimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "andres123");
             st = cnn.createStatement();
             System.out.println("Conexión Buena");
             
