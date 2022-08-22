@@ -58,7 +58,7 @@ public class ControladorUsuario implements ActionListener {
             cleanBlanks();
             newuser.dispose();
         } else {
-            JOptionPane.showMessageDialog(newuser, "Error, Usuario no agregado");
+            JOptionPane.showMessageDialog(newuser, "Usuario no agregado");
         }
     }
 

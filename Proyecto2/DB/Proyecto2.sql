@@ -43,7 +43,7 @@ CREATE TABLE `clasesvirtuales` (
 
 LOCK TABLES `clasesvirtuales` WRITE;
 /*!40000 ALTER TABLE `clasesvirtuales` DISABLE KEYS */;
-INSERT INTO `clasesvirtuales` VALUES (1,'Heredia','Anatomía I','Medicina','Geral Peralta Ibarre','Martes','3:00pm','5:30pm'),(2,'Heredia','Comunicación Profesional','Comunicación','Marta Gómez Soto','Lunes','5:00pm','7:30pm'),(3,'San Pedro','Cálculo II','Matemática','David Suárez Cháves','Jueves','5:00pm','7:30pm'),(4,'Grecia','Cálculo I','Matemática','David Suárez Cháves','Jueves','1:00pm','3:30pm');
+INSERT INTO `clasesvirtuales` VALUES (1,'Heredia','Anatomía I','Medicina','Sofía Castro Madriz','Martes','10:00am','1:00pm'),(3,'Cartago','Cálculo I','Matamática','Isabella León Núñez','Miércoles','1:30pm','5:00pm'),(4,'Heredia','Pre-Cálculo','Matemática','Isabella León Núñez','Martes','2:40pm','4:30pm');
 /*!40000 ALTER TABLE `clasesvirtuales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,8 +60,9 @@ CREATE TABLE `usuarios` (
   `Apellidos` varchar(45) DEFAULT NULL,
   `Usuario` varchar(45) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Usuario_UNIQUE` (`Usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +71,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Óscar','Soto Cruz','cruz','1234'),(2,'Sofía','Umaña Castro','uma00','abc1'),(3,'Oliver','Acosta Salvador','oli12','0000'),(4,'José','Martínez Cortés','mar78','7878');
+INSERT INTO `usuarios` VALUES (1,'Daniel','Soto Cruz','soto1','1234'),(2,'Óscar','Quirós Santilla','santi00','0000');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,4 +162,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-22 13:35:05
+-- Dump completed on 2022-08-22 16:49:53

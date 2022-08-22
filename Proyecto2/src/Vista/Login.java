@@ -28,7 +28,6 @@ public class Login extends javax.swing.JFrame {
         labelUserName = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         labelPassword = new javax.swing.JLabel();
-        cbRemerberme = new javax.swing.JCheckBox();
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
         labelAvatar = new javax.swing.JLabel();
@@ -77,13 +76,8 @@ public class Login extends javax.swing.JFrame {
         labelPassword.setText("Contraseña");
         panelLogin.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 90, 30));
 
-        cbRemerberme.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        cbRemerberme.setText("Recuerdame");
-        cbRemerberme.setBorder(null);
-        panelLogin.add(cbRemerberme, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
-
         btnLogin.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
-        btnLogin.setText("Iniciar");
+        btnLogin.setText("INGRESAR");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -188,7 +182,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnLogin;
     public javax.swing.JLabel btnSalir;
-    private javax.swing.JCheckBox cbRemerberme;
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelCardHeader;
     private javax.swing.JLabel labelImagenUnion;

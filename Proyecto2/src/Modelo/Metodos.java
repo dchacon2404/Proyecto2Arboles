@@ -90,7 +90,6 @@ public class Metodos {
             node.right = rightRotation(node.right);
             return leftRotation(node);
         }
-
         return node;
     }
 }
