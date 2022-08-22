@@ -20,7 +20,7 @@ public class MetodosDAO {
     
     public int addUser(Usuario user) {
         int r = 0;
-        String sql = "INSERT INTO Usuarios (Nombre, Apellidos, Usuario, Contrasena) VALUES (?,?,?,?);";
+        String sql = "call pa_AgregarUsuario(?,?,?,?);";
         try {
             conn = conexion.getConnection();
             ps = conn.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class MetodosDAO {
     
     public boolean login(Usuario user) {
 
-        String sql = "SELECT Usuario, Contrasena FROM Usuarios WHERE Usuario=?;";
+        String sql = "SELECT Usuario, Contrasena FROM Usuarios WHERE Usuario = ?;";
         
         try {
             conn = conexion.getConnection();
@@ -48,7 +48,6 @@ public class MetodosDAO {
             
             if (rs.next()) {
                 if (user.getPassword().equals(rs.getString("Contrasena"))){
-                    user.setUser(rs.getString("Usuario"));
                     return true;
                 } else {
                     return false;
@@ -80,7 +79,7 @@ public class MetodosDAO {
     public void tablaCursos(JTable table) {
         String[] titles = {"Código", "Sede", "Nombre", "Tema", "Docente", "Día", "Hora Inicio", "Hora Fin"};
         String[] datos = new String[8];
-        String sql = "SELECT Codigo, Sede, Nombre, Tema, Docente, Dia, HoraInicio, HoraFin FROM ClasesVirtuales;";
+        String sql = "call pa_TablaCursos;";
         DefaultTableModel modelo = new DefaultTableModel(null, titles);
         
         try {
@@ -109,7 +108,7 @@ public class MetodosDAO {
     public void buscarCurso(JTable table, int codigo) {
         
         String sql = "SELECT Codigo, Sede, Nombre, Tema, Docente, Dia, HoraInicio, HoraFin FROM ClasesVirtuales "
-                + "WHERE Codigo="+codigo+";";
+                + "WHERE Codigo = "+codigo+";";
         String[] titles = {"Código", "Sede", "Nombre", "Tema", "Docente", "Día", "Hora Inicio", "Hora Fin"};
         String[] datos = new String[8];
         DefaultTableModel modelo = new DefaultTableModel(null, titles);

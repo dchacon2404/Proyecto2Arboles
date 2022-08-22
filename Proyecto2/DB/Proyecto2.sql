@@ -43,6 +43,7 @@ CREATE TABLE `clasesvirtuales` (
 
 LOCK TABLES `clasesvirtuales` WRITE;
 /*!40000 ALTER TABLE `clasesvirtuales` DISABLE KEYS */;
+INSERT INTO `clasesvirtuales` VALUES (1,'Heredia','Anatomía I','Medicina','Geral Peralta Ibarre','Martes','3:00pm','5:30pm'),(2,'Heredia','Comunicación Profesional','Comunicación','Marta Gómez Soto','Lunes','5:00pm','7:30pm'),(3,'San Pedro','Cálculo II','Matemática','David Suárez Cháves','Jueves','5:00pm','7:30pm'),(4,'Grecia','Cálculo I','Matemática','David Suárez Cháves','Jueves','1:00pm','3:30pm');
 /*!40000 ALTER TABLE `clasesvirtuales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +61,7 @@ CREATE TABLE `usuarios` (
   `Usuario` varchar(45) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,8 +70,87 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'Óscar','Soto Cruz','cruz','1234'),(2,'Sofía','Umaña Castro','uma00','abc1'),(3,'Oliver','Acosta Salvador','oli12','0000'),(4,'José','Martínez Cortés','mar78','7878');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'proyecto2'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `pa_AgregarCurso` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_AgregarCurso`(
+	in codigo int,
+    in sede varchar(70),
+    in nombre varchar(70),
+    in tema varchar(150),
+    in docente varchar(45),
+    in dia varchar(45),
+    in inicio varchar(45),
+    in fin varchar(45)
+)
+BEGIN 
+	INSERT INTO ClasesVirtuales (Codigo, Sede, Nombre, Tema, Docente, Dia, HoraInicio, HoraFin)
+    VALUES (codigo, sede, nombre, tema, docente, dia, inicio, fin);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_AgregarUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_AgregarUsuario`(
+    in nombre varchar(45),
+    in apellidos varchar(45),
+    in usuario varchar(45),
+    in contrasena varchar(45)
+)
+BEGIN 
+	INSERT INTO Usuarios (Nombre, Apellidos, Usuario, Contrasena)
+    VALUES (nombre, apellidos, usuario, contrasena);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_TablaCursos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_TablaCursos`(
+)
+BEGIN 
+	SELECT Codigo, Sede, Nombre, Tema, Docente, Dia, HoraInicio, HoraFin FROM ClasesVirtuales;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -81,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-13 14:51:59
+-- Dump completed on 2022-08-22 13:35:05
