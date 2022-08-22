@@ -27,7 +27,7 @@ public class ControladorClases implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == curso.btnAgregar) {
-            
+            agregarCurso();
         }
         
         if (e.getSource() == curso.btnEliminar) {
@@ -51,11 +51,42 @@ public class ControladorClases implements ActionListener{
         }
     }
     
+    public void agregarCurso() {
+        
+        int codigo = Integer.parseInt(curso.txtCodigo.getText());
+        String sede = curso.txtSede.getText();
+        String nombreCurso = curso.txtNombreCurso.getText();
+        String tema = curso.txtTema.getText();
+        String docente = curso.txtDocente.getText();
+        String dia = curso.txtDía.getText();
+        String inicio = curso.txtHoraInicio.getText();
+        String fin = curso.txtHoraFin.getText();
+        
+        clase.setCodigoCurso(codigo);
+        clase.setSede(sede);
+        clase.setNombreCurso(nombreCurso);
+        clase.setTemaCurso(tema);
+        clase.setDocente(docente);
+        clase.setDia(dia);
+        clase.setHoraInicio(inicio);
+        clase.setHoraFin(fin);
+        
+        int r = dao.agregarCurso(clase);
+        if (r == 1) {
+            JOptionPane.showMessageDialog(curso, "El curso se agregó correctamente");
+            inicio();
+            cleanBlanks();
+        } else {
+            JOptionPane.showMessageDialog(curso, "No se pudo guardar el curso");
+        }
+    }
+    
     public void eliminarCurso (int codigo) {
         int r = dao.eliminarCurso(codigo);
         
         if (r == r) {
             JOptionPane.showMessageDialog(curso, "El curso se eliminó correctamente");
+            System.out.println("");
             inicio();
             cleanBlanks();
         } else {
@@ -64,7 +95,8 @@ public class ControladorClases implements ActionListener{
     }
     
     public void inicio() {
-        dao.tablaCursos(curso.tablaCursos);
+        dao.tablaCursos(curso.tablaCursos, clase);
+        System.out.println("");
         cleanBlanks();
     }
     

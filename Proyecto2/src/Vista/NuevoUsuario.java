@@ -74,7 +74,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         panelInsertNewUser.add(labelLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
 
         labelPassword.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        labelPassword.setText("Contrasenña");
+        labelPassword.setText("Contraseña");
         panelInsertNewUser.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
         panelInsertNewUser.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 160, -1));
         panelInsertNewUser.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 160, -1));
