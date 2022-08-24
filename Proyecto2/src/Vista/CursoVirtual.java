@@ -1,6 +1,7 @@
 package Vista;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 
 public class CursoVirtual extends javax.swing.JFrame {
@@ -37,7 +38,7 @@ public class CursoVirtual extends javax.swing.JFrame {
         txtDía = new javax.swing.JTextField();
         txtHoraInicio = new javax.swing.JTextField();
         txtHoraFin = new javax.swing.JTextField();
-        tableCursos = new javax.swing.JScrollPane();
+        spTableCursos = new javax.swing.JScrollPane();
         tablaCursos = new javax.swing.JTable();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -98,9 +99,14 @@ public class CursoVirtual extends javax.swing.JFrame {
 
             }
         ));
-        tableCursos.setViewportView(tablaCursos);
+        tablaCursos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaCursosMouseClicked(evt);
+            }
+        });
+        spTableCursos.setViewportView(tablaCursos);
 
-        bg.add(tableCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 520, 220));
+        bg.add(spTableCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 520, 220));
 
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregar.setText("AGREGAR CURSO");
@@ -176,6 +182,17 @@ public class CursoVirtual extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
+    private void tablaCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaCursosMouseClicked
+        try {
+            int fila = tablaCursos.getSelectedRow();
+            String codigo = tablaCursos.getValueAt(fila, 0).toString();
+            txtBuscar.setText(codigo);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error : "+e.getMessage());
+        }
+    }//GEN-LAST:event_tablaCursosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -229,8 +246,8 @@ public class CursoVirtual extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreCurso;
     private javax.swing.JLabel lblSede;
     private javax.swing.JLabel lblTema;
+    private javax.swing.JScrollPane spTableCursos;
     public javax.swing.JTable tablaCursos;
-    private javax.swing.JScrollPane tableCursos;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtDocente;
