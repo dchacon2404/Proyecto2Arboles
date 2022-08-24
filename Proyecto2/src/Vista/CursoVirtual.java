@@ -46,6 +46,7 @@ public class CursoVirtual extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         btnSalir = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
+        btnRefrescar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,11 +104,11 @@ public class CursoVirtual extends javax.swing.JFrame {
 
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregar.setText("AGREGAR CURSO");
-        bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setText("ELIMINAR CURSO");
-        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, -1, -1));
+        bg.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, -1, -1));
 
         lblBuscar.setText("Buscar Curso Virtual:");
         bg.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 120, -1));
@@ -117,7 +118,7 @@ public class CursoVirtual extends javax.swing.JFrame {
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBuscar.setText("BUSCAR");
-        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, 140, -1));
+        bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 110, -1));
 
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 0, 0));
@@ -138,6 +139,10 @@ public class CursoVirtual extends javax.swing.JFrame {
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelar.setText("CANCELAR");
         bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
+
+        btnRefrescar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRefrescar.setText("...");
+        bg.add(btnRefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Union.png"))); // NOI18N
         fondo.setText(".");
@@ -212,6 +217,7 @@ public class CursoVirtual extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnRefrescar;
     private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel lblBuscar;

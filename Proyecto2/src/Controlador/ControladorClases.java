@@ -21,6 +21,7 @@ public class ControladorClases implements ActionListener{
         this.curso.btnBuscar.addActionListener(this);
         this.curso.btnEliminar.addActionListener(this);
         this.curso.btnCancelar.addActionListener(this);
+        this.curso.btnRefrescar.addActionListener(this);
     }
 
     @Override
@@ -47,6 +48,11 @@ public class ControladorClases implements ActionListener{
         }
         
         if (e.getSource() == curso.btnCancelar) {
+            cleanBlanks();
+        }
+        
+        if (e.getSource() == curso.btnRefrescar) {
+            inicio();
             cleanBlanks();
         }
     }
