@@ -40,7 +40,7 @@ public class MetodosDAO {
     
     public boolean login(Usuario user) {
 
-        String sql = "SELECT Usuario, Contrasena FROM Usuarios WHERE Usuario = ?;";
+        String sql = "call pa_Login(?);";
         
         try {
             conn = conexion.getConnection();
@@ -90,11 +90,12 @@ public class MetodosDAO {
     
     public int eliminarCurso(int codigo) {
         int p = 0;
-        String sql = "DELETE FROM ClasesVirtuales WHERE Codigo="+codigo+";";
+        String sql = "call pa_CodigoEliminar(?);";
         
         try {
             conn = conexion.getConnection();
             ps = conn.prepareStatement(sql);
+            ps.setInt(1, codigo);
             p = ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -146,8 +147,7 @@ public class MetodosDAO {
     
     public void buscarCurso(JTable table, int codigo) {
         
-        String sql = "SELECT Codigo, Sede, Nombre, Tema, Docente, Dia, HoraInicio, HoraFin FROM ClasesVirtuales "
-                + "WHERE Codigo = "+codigo+";";
+        String sql = "call pa_BuscarCurso(?);";
         String[] titles = {"Código", "Sede", "Nombre", "Tema", "Docente", "Día", "Hora Inicio", "Hora Fin"};
         String[] datos = new String[8];
         DefaultTableModel modelo = new DefaultTableModel(null, titles);
@@ -155,6 +155,7 @@ public class MetodosDAO {
         try {
             conn = conexion.getConnection();
             ps = conn.prepareStatement(sql);
+            ps.setInt(1, codigo);
             rs = ps.executeQuery();
             
             while(rs.next()) {
