@@ -12,19 +12,8 @@ public class ClaseVirtual {
     private String horaInicio;
     private String horaFin;
 
+    //Este constructor se usa en la clase ControladorClases
     public ClaseVirtual() {
-    }
-
-    public ClaseVirtual(String nombreCurso, String temaCurso, int codigoCurso, String sede, String docente,
-        String dia, String horaInicio, String horaFin) {
-        this.nombreCurso = nombreCurso;
-        this.temaCurso = temaCurso;
-        this.codigoCurso = codigoCurso;
-        this.sede = sede;
-        this.docente = docente;
-        this.dia = dia;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
     }
 
     public String getNombreCurso() {
@@ -90,10 +79,4 @@ public class ClaseVirtual {
     public void setHoraFin(String horaFin) {
         this.horaFin = horaFin;
     }
-    
-    
-    
-    
-    
-    
 }

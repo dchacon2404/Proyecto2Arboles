@@ -92,4 +92,51 @@ public class Metodos {
         }
         return node;
     }
+    
+    //Este método se usa en el TablaCursos
+    public Node insert2(Node node, int data2){
+        //1. Insercion normal en un arbol de busqueda binaria
+        if (node == null){
+            return (new Node(data2));
+        }
+
+        if (data2 < node.data2){
+            node.left = insert2(node.left, data2);
+        } else if (data2 > node.data2){
+            node.right = insert2(node.right, data2);
+        } else { //Duplicados no son permitidos
+            return node;
+        }
+
+        //2. Actualizar la altura del nodo
+        node.height = 1 + max(height(node.left), height(node.right));
+
+        //3. Obtener el factor de balance del nodo para posteriormente determinar si esta balanceado o no
+        int balanceFactor = getBalance(node);
+
+        //4. Si la insercion del nodo combierte al arbol en un arbol desbalanceado los cuatro posibles escenarios
+
+        // Rotacion derecha
+        if (balanceFactor > 1 && data2 < node.left.data2){
+            return rightRotation(node);
+        }
+
+        // Rotacion izquierda
+        if (balanceFactor < -1 && data2 > node.right.data2){
+            return leftRotation(node);
+        }
+
+        // Rotacion izquierda derecha
+        if (balanceFactor > 1 && data2 > node.left.data2){
+            node.left = leftRotation(node.left);
+            return rightRotation(node);
+        }
+
+        // Rotacion derecha izquierda
+        if (balanceFactor < -1 && data2 < node.right.data2){
+            node.right = rightRotation(node.right);
+            return leftRotation(node);
+        }
+        return node;
+    }
 }

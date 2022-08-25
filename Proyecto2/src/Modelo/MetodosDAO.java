@@ -128,6 +128,15 @@ public class MetodosDAO {
                 
                 metodo.root = metodo.insert(metodo.root, clase);
                 
+                //Acá se usa el método insert2
+                /*metodo.root = metodo.insert2(metodo.root, 1);
+                metodo.root = metodo.insert2(metodo.root, 2);
+                metodo.root = metodo.insert2(metodo.root, 3);
+                metodo.root = metodo.insert2(metodo.root, 7);
+                metodo.root = metodo.insert2(metodo.root, 6);
+                metodo.root = metodo.insert2(metodo.root, 5);
+                metodo.root = metodo.insert2(metodo.root, 4);*/
+                
                 datos[0] = rs.getString("Codigo");
                 datos[1] = rs.getString("Sede");
                 datos[2] = rs.getString("Nombre");
