@@ -28,7 +28,25 @@ public class ControladorClases implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == curso.btnAgregar) {
-            agregarCurso();
+            if (curso.txtCodigo.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar el código del curso para guardarlo");
+            } else if (curso.txtSede.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar la sede del curso para guardarlo");
+            } else if (curso.txtNombreCurso.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar el nombre del curso para guardarlo");
+            } else if (curso.txtTema.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar el tema del curso para guardarlo");
+            } else if (curso.txtDocente.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar el docente del curso para guardarlo");
+            } else if (curso.txtDía.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar el día que se imparte el curso para guardarlo");
+            } else if (curso.txtHoraInicio.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar la hora de inicio del curso para guardarlo");
+            } else if (curso.txtHoraFin.getText().equals("")) {
+                JOptionPane.showMessageDialog(curso, "Debe ingresar la hora de finalización del curso para guardarlo");
+            } else {
+                agregarCurso();
+            }
         }
         
         if (e.getSource() == curso.btnEliminar) {
