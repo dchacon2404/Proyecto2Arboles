@@ -98,6 +98,12 @@ public class MetodosDAO {
             ps.setInt(1, codigo);
             p = ps.executeUpdate();
             
+            if (p > 0) {
+                JOptionPane.showMessageDialog(curso, "El curso se eliminó correctamente");
+            } else {
+                JOptionPane.showMessageDialog(curso, "No se pudo eliminar el curso, no existe");
+            }
+            
         } catch (SQLException e) {
             System.out.println("Error al elimar: "+e.getMessage());
         }

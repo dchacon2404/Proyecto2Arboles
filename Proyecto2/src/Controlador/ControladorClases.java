@@ -109,12 +109,11 @@ public class ControladorClases implements ActionListener{
         int r = dao.eliminarCurso(codigo);
         
         if (r == r) {
-            JOptionPane.showMessageDialog(curso, "El curso se eliminó correctamente");
             System.out.println("");
             inicio();
             cleanBlanks();
         } else {
-            JOptionPane.showMessageDialog(curso, "No se pudo eliminar el curso");
+            System.out.println("0");
         }
     }
     
